@@ -7,12 +7,25 @@
  * Повертає випадковий пароль.
  */
 function generateRandomPassword(length) {
+  // Перевіряємо, чи довжина пароля є коректною.
+  if (typeof length !== "number" || length <= 0) {
+    return "Помилка: довжина пароля має бути додатнім числом.";
+  }
   // Створюємо порожній рядок для збереження паролю.
+  let password = "";
   // Створюємо рядок characters "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789" з доступних символів для паролю.
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   // За допомогою циклу for проходимось по кожному символу рядка characters
-  // Визначаємо випадковий індекс символу зі списку characters та округляємо до найбільшого цілого, яке менше.
-  // Отримуємо символ з випадковим індексом.
-  // Додаємо отриманий випадковий символ до паролю.
+  for (let i = 0; i < length; i++) {
+    // Визначаємо випадковий індекс символу зі списку characters та округляємо до найбільшого цілого, яке менше.
+    const randomIndex = Math.floor(Math.random() * characters.length);
+    // Отримуємо символ з випадковим індексом.
+    // Додаємо отриманий випадковий символ до паролю.
+    password += characters[randomIndex];
+  }
+  // Повертаємо згенерований пароль.
+  return password;
 }
 
 console.log("Завдання: 1 ==============================");
