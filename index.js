@@ -158,9 +158,15 @@ console.log(roundObjectValues(myObject));
 function calculateVolumeCylinder(radius, height) {
   // Перевіряємо, чи є радіус і висота числами. Якщо хоча б один з аргументів не є числом, виводимо повідомлення про помилку в консоль.
   // Повертаємо null, що свідчить про неможливість обробки вхідних даних.
+  if (typeof radius !== "number" || typeof height !== "number") {
+    console.log("Помилка: радіус і висота повинні бути числами.");
+    return null;
+  }
   // Обчислюємо об'єм циліндра за формулою V = PI * r^2 * h, де PI - число Пі, r - радіус, h - висота.
+  let volume = Math.PI * Math.pow(radius, 2) * height;
   // Округляємо об'єму до найменшого цілого числа числа що більше.
   // Повертаємо обчислений об'єм.
+  return Math.ceil(volume);
 }
 
 console.log("Завдання 6 ==============================");
